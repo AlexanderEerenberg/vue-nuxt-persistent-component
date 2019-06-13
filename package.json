@@ -1,7 +1,7 @@
 {
-  "name": "Nuxt_POC",
+  "name": "vue-nuxt-persistent-component",
   "version": "1.0.0",
-  "description": "My supreme Nuxt.js project",
+  "description": "Vue nuxt persistent component project",
   "author": "Alexander Eerenberg",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/now-builder": "^0.14.4",
     "cross-env": "^5.2.0",
     "nuxt": "^2.4.0"
   },
