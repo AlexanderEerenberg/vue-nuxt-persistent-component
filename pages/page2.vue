@@ -1,7 +1,9 @@
 <template>
   <div class="body">
     <h1>Page 2</h1>
-    <a :click="this.mutateForcePlayerIdChange" :if="this.defaultId !== this.$store.state.PlayerStore.id">Change video to: {{defaultId}}</a>
+    <a v-on:click="forceIdChange">
+      Change video to: {{defaultId}}
+    </a>
   </div>
 </template>
 
@@ -20,14 +22,16 @@
     },
     mounted() {
       if (!this.$store.state.PlayerStore.isPlaying) {
-        this.mutatePlayerId({id: "1roy4o4tqQM"});
+        this.mutatePlayerId({id: "1roy4o4tqQM", force: false});
       }
     },
     methods: {
       ...mapMutations({
         mutatePlayerId: "PlayerStore/mutatePlayerId",
-        mutateForcePlayerIdChange: "PlayerStore/mutateForcePlayerIdChange"
-      })
+      }),
+      forceIdChange() {
+        this.mutatePlayerId({id: "1roy4o4tqQM", force: true})
+      }
     }
   }
 </script>

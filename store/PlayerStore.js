@@ -4,18 +4,14 @@ export const state = () => ({
 })
 
 export const mutations = {
-  mutatePlayerId(state, id) {
-   if (!state.isPlaying) state.id = id.id;
+  mutatePlayerId(state, data) {
+    if (data.force) state.id = data.id;
+    if (!state.isPlaying) state.id = data.id;
   },
-  mutateForcePlayerIdChange(state, id) {
-    state.id = id;
-   },
   setIsPlaying(state) {
     state.isPlaying = true;
-    console.log(state.isPlaying)
   },
   setIsPaused(state) {
     state.isPlaying = false;
-    console.log(state.isPlaying)
   }
 }

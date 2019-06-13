@@ -4,7 +4,7 @@
     <nuxt />
     <no-ssr>
       <div class="container">
-        <YoutubeEmbed />
+        <YoutubeEmbed :youtubeId="this.$store.state.PlayerStore.id" />
       </div>
     </no-ssr>
   </div>
@@ -15,11 +15,6 @@
   import Header from '~/components/Header.vue'
 
   export default {
-    head: {
-      script: [
-        { src: 'https://www.youtube.com/iframe_api' },
-      ]
-    },
     components: {
       YoutubeEmbed,
       Header
@@ -29,13 +24,24 @@
 
 <style>
   html, body {
-      padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  @media only screen and (min-width: 861px) {
+    body {
       margin: 0;
+      max-width: 800px;
+    }
+  }
+  @media only screen and (min-width: 1280px) {
+    body {
+      max-width: 1024px;
+    }
   }
   .body a {
-      cursor: pointer;
-      display: block;
-      text-decoration: underline;
-      padding: 1rem 0;
+    cursor: pointer;
+    display: block;
+    text-decoration: underline;
+    padding: 1rem 0;
   }
 </style>
